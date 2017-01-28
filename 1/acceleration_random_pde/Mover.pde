@@ -7,12 +7,13 @@ class Mover {
   Mover() {
    position = new PVector(width/2, height/2);
    velocity = new PVector(0, 0);
-   
-   acceleration = new PVector(-0.001, 0.01);
-   topspeed = 10;
+   acceleration = new PVector(0, 0);
+   topspeed = 5;
   }
   
   void update() {
+    acceleration = PVector.random2D();
+    
     velocity.add(acceleration);
     velocity.limit(topspeed);
     position.add(velocity);
